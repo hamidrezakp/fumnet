@@ -72,19 +72,14 @@ impl Account<Down> {
         })
     }
 
-    pub async fn logout(&self) -> Result<()> {
-        reqwest::get("https://access.um.ac.ir/logout?")
-            .await
-            .map_err(Error::ReqwestError)
-            .map(|_| ())
+    pub async fn logout() -> Result<()> {
+        logout().await
     }
 }
 
 impl Account<Up> {
     pub async fn logout(self) -> Result<Account<Down>> {
-        reqwest::get("https://access.um.ac.ir/logout?")
-            .await
-            .map_err(Error::ReqwestError)?;
+        logout().await?;
 
         Ok(Account {
             username: self.username,
@@ -106,4 +101,11 @@ impl<S: State> DerefMut for Account<S> {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.state
     }
+}
+
+pub async fn logout() -> Result<()> {
+    reqwest::get("https://access.um.ac.ir/logout?")
+        .await
+        .map_err(Error::ReqwestError)
+        .map(|_| ())
 }

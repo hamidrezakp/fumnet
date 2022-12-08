@@ -1,6 +1,6 @@
 [package]
 name = "fumnet"
-version = "0.2.1"
+version = "0.2.3"
 edition = "2021"
 description = "Fumnet - authentication library for Ferdowsi University of Mashhad captive portal"
 license = "MIT OR Apache-2.0" 
