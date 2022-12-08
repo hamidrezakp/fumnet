@@ -1,6 +1,6 @@
 [package]
 name = "fumnet"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "Fumnet - authentication library for Ferdowsi University of Mashhad captive portal"
 license = "MIT OR Apache-2.0" 
@@ -9,9 +9,6 @@ repository = "https://github.com/hamidrezakp/fumnet-rs"
 keywords = ["captive-portal", "fum", "ferdowsi", "network"]
 categories = ["authentication"]
 
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 reqwest = { version = "0.11", features = ["json"] }
-tokio = { version = "1", features = ["full"] }
+tokio = { version = "1" }

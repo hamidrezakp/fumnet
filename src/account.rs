@@ -71,6 +71,13 @@ impl Account<Down> {
             state: Up,
         })
     }
+
+    pub async fn logout(&self) -> Result<()> {
+        reqwest::get("https://access.um.ac.ir/logout?")
+            .await
+            .map_err(Error::ReqwestError)
+            .map(|_| ())
+    }
 }
 
 impl Account<Up> {
